@@ -15,6 +15,7 @@ var nf1PktDecode = require('./js/nf1/nf1decode');
 var nf5PktDecode = require('./js/nf5/nf5decode');
 var nf7PktDecode = require('./js/nf7/nf7decode');
 var nf9PktDecode = require('./js/nf9/nf9decode');
+var nf10PktDecode = require('./js/nf10/nf10decode');
 var nfInfoTemplates = require('./js/nf9/nfinfotempl');
 
 function nfPktDecode(msg,rinfo) {
@@ -22,15 +23,14 @@ function nfPktDecode(msg,rinfo) {
     switch (version) {
         case 1:
             return this.nf1PktDecode(msg,rinfo);
-            break;
         case 5:
             return this.nf5PktDecode(msg,rinfo);
-            break;
         case 7:
             return this.nf7PktDecode(msg,rinfo);
-            break;
         case 9:
             return this.nf9PktDecode(msg,rinfo);
+        case 10:
+            this.nf10PktDecode(msg,rinfo).catch(console.error);
             break;
         default:
             debug('bad header version %d', version);
@@ -172,4 +172,5 @@ NetFlowV9.prototype.nf1PktDecode = nf1PktDecode;
 NetFlowV9.prototype.nf5PktDecode = nf5PktDecode;
 NetFlowV9.prototype.nf7PktDecode = nf7PktDecode;
 NetFlowV9.prototype.nf9PktDecode = nf9PktDecode;
+NetFlowV9.prototype.nf10PktDecode = nf10PktDecode;
 module.exports = NetFlowV9;

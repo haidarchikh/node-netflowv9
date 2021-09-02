@@ -24,9 +24,10 @@
     "url": "https://github.com/delian/node-netflowv9/issues"
   },
   "dependencies": {
-    "clone": "^1.0.4",
-    "debug": "^4.1.0",
-    "dequeue": "^1.0.5"
+    "clone": "^2.1.2",
+    "debug": "^4.3.2",
+    "dequeue": "^1.0.5",
+    "ipfix_node": "^1.1.1"
   },
   "homepage": "https://github.com/delian/node-netflowv9",
   "devDependencies": {
